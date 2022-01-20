@@ -80,6 +80,18 @@
      width: auto
   }
 
+  footer .ulf {
+     display:block;
+  }
+
+  .retroshadow{
+     font-size: 22px
+  }
+
+  .s-block li{
+     font-size: 12px;
+  }
+
 
 
 
@@ -92,6 +104,14 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
 /*----------bootstrap-navbar-css------------*/
+
+.navbar{
+   position: fixed;
+   z-index: 5;
+   opacity: 0.89;
+   width: -webkit-fill-available;
+}
+
 .navbar-logo{
 	/* padding: 15px; */
 	color: #fff;
