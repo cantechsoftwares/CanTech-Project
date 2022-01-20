@@ -93,6 +93,15 @@
   }
 
 
+  .navbar{
+     position: relative;
+     width: 100%;
+  }
+
+  .row01 p{
+     font-size: 10px
+  }
+
 
 
 
