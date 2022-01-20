@@ -1,7 +1,7 @@
 @media only screen and (max-width: 600px) {
  
    .row1{
-      padding: 5vh 0vh;
+      padding: 10vh 0vh;
    }
 
    .row1 h1{
@@ -109,7 +109,7 @@
    position: fixed;
    z-index: 5;
    opacity: 0.89;
-   width: -webkit-fill-available;
+   width: 100%;
 }
 
 .navbar-logo{
