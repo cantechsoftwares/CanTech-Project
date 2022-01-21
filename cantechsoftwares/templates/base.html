@@ -69,26 +69,9 @@
     <button class="navbar-toggler" type="button" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <i class="fas fa-bars text-white"></i>
     </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ml-auto">
-            <div class="hori-selector"><div class="left"></div><div class="right"></div></div>
-            <li class="nav-item">
-                <a class="nav-link" href="javascript:void(0);"><i class="fas fa-tachometer-alt"></i>Home</a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="javascript:void(0);"><i class="far fa-address-book"></i>About</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="javascript:void(0);"><i class="far fa-clone"></i>Services</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="javascript:void(0);"><i class="far fa-calendar-alt"></i>Contact</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="javascript:void(0);"><i class="far fa-chart-bar"></i>Developers Section</a>
-            </li>
-        </ul>
-    </div>
+    {% block navbar-active %} 
+    
+    {% endblock %}
 </nav>
   <!-- NAVBAR ENDS -->
 
@@ -155,20 +138,20 @@
 
                 <ul class="ulf">
                   <li>
-                    <a href="#">
+                    <a href="{% url 'coming-soon' %}">
                       <i class="fab fa-facebook-f icon"></i> </a>
                   </li>
                   <li>
-                    <a href="#"><i class="fab fa-twitter icon"></i></a>
+                    <a href="{% url 'coming-soon' %}"><i class="fab fa-twitter icon"></i></a>
                   </li>
                   <li>
-                    <a href="#"><i class="fab fa-linkedin-in icon"></i></a>
+                    <a href="{% url 'coming-soon' %}"><i class="fab fa-linkedin-in icon"></i></a>
                   </li>
                   <li>
-                    <a href="#"><i class="fab fa-google-plus-g icon"></i></a>
+                    <a href="{% url 'coming-soon' %}"><i class="fab fa-google-plus-g icon"></i></a>
                   </li>
                   <li>
-                    <a href="#"><i class="fab fa-instagram icon"></i></a>
+                    <a href="{% url 'coming-soon' %}"><i class="fab fa-instagram icon"></i></a>
                   </li>
                 </ul>
               </div>
@@ -180,16 +163,16 @@
                 <h3>Useful Links</h3>
               </div>
               <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">about</a></li>
-                <li><a href="#">services</a></li>
-                <li><a href="#">portfolio</a></li>
-                <li><a href="#">Contact</a></li>
-                <li><a href="#">About us</a></li>
-                <li><a href="#">Our Services</a></li>
-                <li><a href="#">Expert Team</a></li>
-                <li><a href="#">Contact us</a></li>
-                <li><a href="#">Latest News</a></li>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'coming-soon' %}">about</a></li>
+                <li><a href="{% url 'coming-soon' %}">services</a></li>
+                <li><a href="{% url 'coming-soon' %}">portfolio</a></li>
+                <li><a href="{% url 'coming-soon' %}">Contact</a></li>
+                <li><a href="{% url 'coming-soon' %}">About us</a></li>
+                <li><a href="{% url 'coming-soon' %}">Our Services</a></li>
+                <li><a href="{% url 'coming-soon' %}">Expert Team</a></li>
+                <li><a href="{% url 'coming-soon' %}">Contact us</a></li>
+                <li><a href="{% url 'coming-soon' %}">Latest News</a></li>
               </ul>
             </div>
           </div>
@@ -223,11 +206,11 @@
           <div class="col-xl-6 col-lg-6 d-none d-lg-block text-right">
             <div class="footer-menu">
               <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Terms</a></li>
-                <li><a href="#">Privacy</a></li>
-                <li><a href="#">Policy</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'coming-soon' %}">Terms</a></li>
+                <li><a href="{% url 'coming-soon' %}">Privacy</a></li>
+                <li><a href="{% url 'coming-soon' %}">Policy</a></li>
+                <li><a href="{% url 'coming-soon' %}">Contact</a></li>
               </ul>
             </div>
           </div>

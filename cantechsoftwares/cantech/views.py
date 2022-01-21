@@ -15,3 +15,7 @@ class Home(View):
         
         return render(request,'home.html')
       
+class ComingSoon(View):
+    def get(self,request):
+        
+        return render(request,'comingsoon.html')
