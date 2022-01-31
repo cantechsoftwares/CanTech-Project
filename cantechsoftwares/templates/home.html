@@ -10,19 +10,19 @@ HOME
 <ul class="navbar-nav ml-auto">
   <div class="hori-selector"><div class="left"></div><div class="right"></div></div>
   <li class="nav-item active">
-      <a class="nav-link " href="{% url 'home' %}"><i class="fas fa-tachometer-alt"></i>Home</a>
+      <a class="nav-link " href="{% url 'home' %}"><i class="fas fa-tachometer-alt"></i> Home</a>
   </li>
   <li class="nav-item ">
-      <a class="nav-link" href="{% url 'coming-soon' %}"><i class="far fa-address-book"></i>About</a>
+      <a class="nav-link" href="{% url 'About-Us' %}"><i class="far fa-address-book"></i> About</a>
   </li>
   <li class="nav-item">
-      <a class="nav-link" href="{% url 'coming-soon' %}"><i class="far fa-clone"></i>Services</a>
+      <a class="nav-link" href="{% url 'coming-soon' %}"><i class="far fa-clone"></i> Services</a>
   </li>
   <li class="nav-item">
-      <a class="nav-link" href="{% url 'coming-soon' %};"><i class="far fa-calendar-alt"></i>Contact</a>
+      <a class="nav-link" href="{% url 'coming-soon' %};"><i class="far fa-calendar-alt"></i> Contact</a>
   </li>
   <li class="nav-item">
-      <a class="nav-link" href="{% url 'coming-soon' %}"><i class="far fa-chart-bar"></i>Developers Section</a>
+      <a class="nav-link" href="{% url 'coming-soon' %}"><i class="far fa-chart-bar"></i> Developers Section</a>
   </li>
 </ul>
 
@@ -458,19 +458,21 @@ HOME
                         <h4>CONTACT NOW</h4>
                         <h2>Have A Question? Write a Message.</h2>
                         <br>
-                        <form>
+                        
+                        <form action="feedback-form" method="POST">
+                          {% csrf_token %}
                             <div class="form-row">
                               <div class="form-group col-md-6">
-                                <input type="text" class="form-control" id="" placeholder="Enter Your Name *">
+                                <input type="text" class="form-control" id="" name="name" placeholder="Enter Your Name *">
                               </div>
                               <div class="form-group col-md-6">
-                                <input type="text" class="form-control" id="" placeholder="Enter Phone No *">
+                                <input type="text" class="form-control" id="" name="phoneno"placeholder="Enter Phone No *">
                               </div>
                             </div>
                             <div class="form-group">
-                              <input type="email" class="form-control" id="" placeholder="Enter Your Email ">
+                              <input type="email" class="form-control" id="" name="email" placeholder="Enter Your Email ">
                               <br>
-                              <textarea name="message" id="" cols="40" rows="4" placeholder="Message *"></textarea>
+                              <textarea name="message" id="" cols="40" rows="4" name="message"placeholder="Message *"></textarea>
                             </div>
                             <div class="form-group">
                               <div class="form-check">
@@ -554,13 +556,6 @@ HOME
             </ul>
           </div> -->
         <!-- SOCIAL: MEDIA END -->
-        <!-- 6th Sextion -->
-        <div class="row7" >
-            <h1>Intrested Working With Us?</h1>
-            <br>
-            <button class="custom-btn btn-12"><span class="btn-12-span">Click here !</span><span class="btn-12-span">Get Quote</span></button>
-        </div>
-        <!-- ^6TH SECTION END -->
         <!-- FOOTER -->
         
 </div>

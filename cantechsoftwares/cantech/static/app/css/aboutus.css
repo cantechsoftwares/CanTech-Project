@@ -1,0 +1,27 @@
+.row2a{
+    padding: 10vh;
+    /* background: #e6e6e6; */
+}
+
+.row2a li{
+    margin-bottom: 2vh;
+    font-weight: 600    ;
+    list-style-type: circle ;
+}
+
+.row2a1 p{
+    font-weight: 600;
+}
+
+.row3a{
+    background: rgb(144,251,255);
+    background: linear-gradient(180deg, rgba(144,251,255,1) 0%, rgba(252,254,255,1) 100%);
+    text-align: center;
+    padding: 10vh 5vh;
+}
+
+.aboutu5-img{
+    height: 130px;
+    width: 150px;
+    margin: 0 auto;
+}

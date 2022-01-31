@@ -124,12 +124,12 @@ background-image: linear-gradient(315deg, #4dccc6 0%, #96e4df 74%);
     background: linear-gradient(to right, #E2E2E2, #C9D6FF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
 }
-.row3 span{
+.row3 span, .pink-text{
     color: #e91e63;
     font-weight: 800;
 }
 
-.row3 h3{
+.row3 h3, .row2a h2{
     font-weight: 700;
     font-size: 35px;
 }
@@ -147,6 +147,12 @@ background-image: linear-gradient(315deg, #4dccc6 0%, #96e4df 74%);
   margin-top: 30px;
   position: relative;
   text-align: center;
+  transition-duration: 0.5s;
+}
+
+.funfct:hover  {
+  transform: translateY(-20.5px);
+  transition-duration: 0.5s;
 }
 
 .srcl1 {
@@ -158,7 +164,7 @@ background-image: linear-gradient(315deg, #4dccc6 0%, #96e4df 74%);
   border-bottom: 4px solid #ffc093;
 }
 
-.row3 h5{
+.row3 h5, .bold-h5{
   display: inline-block;
     font-weight: 900;
     font-size: 26px;
@@ -452,6 +458,12 @@ a:hover {
 
 .servblock{
   padding: 20px;
+  transition-duration: 0.5s;
+}
+
+.servblock:hover{
+  transform: translateY(-20.5px);
+  transition-duration: 0.5s;
 }
 
 .s-block ul{

@@ -98,14 +98,16 @@
      font-size: 10px
   }
 
- textarea {
-    width: -webkit-fill-available;
- }
 
 
 }
 
 
+textarea {
+    width: -webkit-fill-available;
+ }
+
+ 
 /* NAVBAR CSS */
  
 @import url('https://fonts.googleapis.com/css?family=Roboto');
