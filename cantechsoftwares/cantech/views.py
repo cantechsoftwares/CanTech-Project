@@ -14,6 +14,17 @@ class Home(View):
     def get(self,request):
         
         return render(request,'home.html')
+
+    def post(self,request):
+        if request.method == 'POST':
+            f_name = request.POST['name']
+            f_phoneno = request.POST['phoneno']
+            f_email = request.POST['email']
+            f_message = request.POST['message']
+
+            feedback = FeedbackModel.objects.create(f_name=f_name,f_phoneno=f_phoneno,f_email=f_email,f_message=f_message)
+        
+        return render(request,'home.html')     
       
 class ComingSoon(View):
     def get(self,request):
