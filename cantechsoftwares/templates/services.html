@@ -1,0 +1,133 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Services
+{% endblock %}
+
+{% block navbar-active %}
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+ 
+<ul class="navbar-nav ml-auto">
+  <div class="hori-selector"><div class="left"></div><div class="right"></div></div>
+  <li class="nav-item ">
+      <a class="nav-link " href="{% url 'home' %}"><i class="fas fa-tachometer-alt"></i> Home</a>
+  </li>
+  <li class="nav-item ">
+      <a class="nav-link" href="{% url 'About-Us' %}"><i class="far fa-address-book"></i> About</a>
+  </li>
+  <li class="nav-item active">
+      <a class="nav-link" href="{% url 'services' %}"><i class="far fa-clone"></i> Services</a>
+  </li>
+  <li class="nav-item">
+      <a class="nav-link" href="{% url 'contact-us' %}"><i class="far fa-calendar-alt"></i> Contact</a>
+  </li>
+  <li class="nav-item">
+      <a class="nav-link" href="{% url 'coming-soon' %}"><i class="far fa-chart-bar"></i> Developers Section</a>
+  </li>
+</ul>
+
+</div>
+{% endblock %}
+
+{% block content %}
+
+
+
+<!-- FIRST CONTAINER -->
+<div class="container-flex ">
+    <div class="row row1">
+        <div class="col">
+            <h1>Services</h1>       
+            <p>Every product is unique, but so is also our tailored process:<br>
+                we fuse strategy, creation and engineering.
+                To genuinely innovate, we foster synergies beyond the established.</p>
+            <div class="row2">
+                <button class="custom-btn btn-13">Request A Quote</button>
+                
+            </div>
+        </div>
+    </div>
+    <div class="container" >
+        <div class="row2s row" >
+            <h3 class="pink-text text-center">Process</h3>
+            <h2 class="text-center"><b>Our Development Process</b></h2>
+            <br>
+            <p class="text-center row2sp">Our design process follows a proven approach. We begin with a deep understanding of your needs and create a planning template.</p>
+            <br>
+            <!-- 1 -->
+            <div class="col-lg-5 mb-5 v-center" >
+                <img class="" src="{% static 'app/images/process-1.jpg' %}" alt="" >
+            </div>
+            <div class="col-lg-7 mb-5" >
+                <span>1</span>
+                <h3><b>Requirement Gathering</b></h3>
+                <p>Before starting any project, we make it a point to clearly understand the needs of the client. To make any project a success, it becomes super necessary to have an understanding of the requirements. This leads to better planning and implementation.</p>
+            </div>
+            <!-- 2 -->
+            <div class="col-lg-7 mb-5" >
+                <span>2</span>
+                <h3><b>Documentation</b></h3>
+                <p>A thorough analysis is done wherein requirements, strategies, planning, estimated cost is listed. A flowchart depicting how the implementation will be done is projected to provide a crystal clear idea to the client. This helps in addressing all the issues.</p>
+            </div>
+            <div class="col-lg-5 mb-5 v-center" >
+                <img class="" src="{% static 'app/images/process-2.jpg' %}" alt="" >
+            </div>
+            <!-- 3 -->
+            <div class="col-lg-5 mb-5 v-center" >
+                <img class="" src="{% static 'app/images/process-3.jpg' %}" alt="" >
+            </div>
+            <div class="col-lg-7 mb-5" >
+                <span>3 </span>
+                <h3><b>Designing/UI/UX/Prototype</b></h3>
+                <p>We then focus on aesthetics and design the project to leave an everlasting impression. It is done keeping in mind the client’s requirements and the points listed in the documentation. This helps in the creation of the project as envisioned by the client.</p>
+            </div>
+            <!-- 4 -->
+            <div class="col-lg-7 mb-5" >
+                <span>4</span>
+                <h3><b>Coding/Implementation</b></h3>
+                <p>This phase involves the building of code and its implementation to create a product. It’s one of the most important phases as the structure has to be robust and sound. This phase speaks about the code and the capability that it can offer to the product.</p>
+            </div>
+            <div class="col-lg-5 mb-5 v-center" >
+                <img class="" src="{% static 'app/images/process-4.jpg' %}" alt="" >
+            </div>
+            <!-- 5 -->
+            <div class="col-lg-5 mb-5 v-center" >
+                <img class="" src="{% static 'app/images/process-5.jpg' %}" alt="" >
+            </div>
+            <div class="col-lg-7 mb-5" >
+                <span>5 </span>
+                <h3><b>Testing and Quality Check</b></h3>
+                <p>After the product has been created, it then enters into the testing phase. A thorough check of the product is done wherein all the vulnerabilities are identified. These loopholes are then fixed and the quality check of the product is done again.</p>
+            </div>
+            <!-- 6 -->
+            <div class="col-lg-7 mb-5" >
+                <span>6</span>
+                <h3><b>Deployment </b></h3>
+                <p>Once the product/project is ready, it’s then deployed on the client’s preferred platform of choice. It can be Heroku, GoDaddy, CPanel or any other platform. The product becomes live and can thereafter be used by the targeted audience.</p>
+            </div>
+            <div class="col-lg-5 mb-5 v-center" >
+                <img class="" src="{% static 'app/images/process-6.jpg' %}" alt="" >
+            </div>
+            <!-- 5 -->
+            <div class="col-lg-5 mb-5 v-center" >
+                <img class="" src="{% static 'app/images/process-6.jpg' %}" alt="" >
+            </div>
+            <div class="col-lg-7 mb-5" >
+                <span>7 </span>
+                <h3><b>Support and Maintainance</b></h3>
+                <p>We at CanTech, have a continuous and reliable support and maintenance staff. To address the queries of clients, we make it a point to provide unhindered and robust customer service. Customer satisfaction is one of the core values that define us.</p>
+            </div>
+
+
+        </div>
+    </div>
+
+    <!-- 2nd Container SERVICES -->
+    <div class="container-fluid">{% include 'serv.html' %} </div>
+    
+
+    
+
+</div>
+
+{% endblock %}

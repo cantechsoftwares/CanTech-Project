@@ -25,3 +25,40 @@
     width: 150px;
     margin: 0 auto;
 }
+
+
+/* SERVICES CSS */
+
+.row2s{
+    /* text-align: center; */
+    padding: 15vh 5vh;
+}
+
+.row2sp{
+    margin-bottom: 20vh;
+}
+
+.row2s img{
+    -webkit-box-shadow: -20px 20px 35px #dcdcdc, 20px -40px 35px #ffffff;
+    box-shadow: -20px 20px 35px #dcdcdc, 20px -40px 35px #ffffff;
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+    /* width: 100%; */
+}
+
+.row2s span {
+    font-size: 60px;
+    font-family: "Poppins", sans-serif;
+    border-radius: 100%;
+    border: 1px solid #e8e8e8;
+    width: 100px;
+    height: 100px;
+    display: block;
+    text-align: center;
+    line-height: 100px;
+    margin: 0 0 20px 0;
+    color: #6a6a8e;
+    border-radius: 68% 32% 64% 36% / 59% 59% 41% 41%;
+    background: #f5f5ff;
+    animation: border-transform 6s linear infinite;
+}

@@ -31,6 +31,18 @@ class ComingSoon(View):
         
         return render(request,'comingsoon.html')
 
+class Services(View):
+    def get(self,request):
+        
+        return render(request,'services.html')
+
+class Contact(View):
+    def get(self,request):
+        
+        return render(request,'contact.html')
+
+
+
 class FeedbackForm(View):
     def post(self,request):
         print("1")

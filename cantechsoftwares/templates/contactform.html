@@ -1,0 +1,42 @@
+{% load static %}
+<!-- ROW8 -->
+<div class="row8" >
+    <div class="container" >
+        <div class="row" >
+            <div class="col-md-7" >
+                <h4>CONTACT NOW</h4>
+                <h2>Have A Question? Write a Message.</h2>
+                <br>
+                
+                <form action="" method="POST">
+                  {% csrf_token %}
+                    <div class="form-row">
+                      <div class="form-group col-md-6">
+                        <input type="text" class="form-control" id="" name="name" placeholder="Enter Your Name *">
+                      </div>
+                      <div class="form-group col-md-6">
+                        <input type="text" class="form-control" id="" name="phoneno"placeholder="Enter Phone No *">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <input type="email" class="form-control" id="" name="email" placeholder="Enter Your Email ">
+                      <br>
+                      <textarea name="message" id="" cols="40" rows="4" name="message"placeholder="Message *"></textarea>
+                    </div>
+                    <div class="form-group">
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="gridCheck">
+                        <label class="form-check-label" for="gridCheck">
+                          I agree to the terms and conditions
+                        </label>
+                      </div>
+                    </div>
+                    <button type="submit" class="custom-btn btn-7">Submit</button>
+                  </form>
+            </div>
+            <div class="col-md-5" >
+                <img src="{% static 'app/images/hellopic.png' %}" alt="">
+            </div>
+        </div>
+    </div>
+</div>
