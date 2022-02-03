@@ -62,3 +62,7 @@
     background: #f5f5ff;
     animation: border-transform 6s linear infinite;
 }
+
+.row2s h3{
+    word-wrap: break-word;
+}
