@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Portal
+{% endblock %}
+
+{% block navbar-active %}
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+    <ul class="navbar-nav ml-auto">
+        <div class="hori-selector">
+            <div class="left"></div>
+            <div class="right"></div>
+        </div>
+        <li class="nav-item ">
+            <a class="nav-link " href="{% url 'home' %}"><i class="fas fa-tachometer-alt"></i> Home</a>
+        </li>
+        <li class="nav-item ">
+            <a class="nav-link" href="{% url 'About-Us' %}"><i class="far fa-address-book"></i> About</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'services' %}"><i class="far fa-clone"></i> Services</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'contact-us' %}"><i class="far fa-calendar-alt"></i> Contact</a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link" href="{% url 'Portal' %}"><i class="far fa-chart-bar"></i> Developers Section</a>
+        </li>
+    </ul>
+
+</div>
+{% endblock %}
+
+{% block content %}
+
+<!-- FIRST CONTAINER -->
+<div class="container-flex ">
+    <div class="row row1">
+        <div class="col">
+            <h1>CanTech Portal</h1>
+
+        </div>
+    </div>
+
+    <!-- 2 ELEMENTS -->
+    <!-- 5 ROW START -->
+    <div class="container-fluid row3a">
+        <h3 class="pink-text" >I Am</h3>
+        <br>
+        <div class="row" >
+            <!-- 2 ELEMENTS -->
+            <div class="col-md-4" >
+                <div class="servblock" >
+                    <a href="{% url 'user-login' %}" class="service-block s-block wide-sblock row" >
+                        <img class="aboutu5-img" src="{% static 'app/images/businessman.png' %}" alt=""  >
+                        <h5 class="bold-h5" >Applicant</h5>
+                        <p>Looking For Development Projects and Active Job Roles.</p>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-4" >
+                <div class="servblock" >
+                    <a href="{% url 'recruiter-login' %}"  class="service-block s-block wide-sblock row" >
+                        <img class="aboutu5-img" src="{% static 'app/images/recruitment.png' %}" alt=""  >
+                        <h5 class="bold-h5" >Recruiter</h5>
+                        <p>Looking Active Applicants, For Projects And Job Roles</p>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-4" >
+                <div class="servblock" >
+                    <a href="{% url 'admin-login' %}"  class="service-block s-block wide-sblock row" >
+                        <img class="aboutu5-img" src="{% static 'app/images/admin.png' %}" alt=""  >
+                        <h5 class="bold-h5" >Admin</h5>
+                        <p>Authorizing Applicants And Recruiters</p>
+                    </a>
+                </div>
+            </div>
+            <!-- 2 ELEMENT END -->
+        </div>    
+    </div>
+    <!-- 5 row END -->
+
+</div>
+
+{% endblock %}
+

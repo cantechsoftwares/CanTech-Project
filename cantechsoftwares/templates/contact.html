@@ -6,25 +6,28 @@ Contact Us
 
 {% block navbar-active %}
 <div class="collapse navbar-collapse" id="navbarSupportedContent">
- 
-<ul class="navbar-nav ml-auto">
-  <div class="hori-selector"><div class="left"></div><div class="right"></div></div>
-  <li class="nav-item ">
-      <a class="nav-link " href="{% url 'home' %}"><i class="fas fa-tachometer-alt"></i> Home</a>
-  </li>
-  <li class="nav-item ">
-      <a class="nav-link" href="{% url 'About-Us' %}"><i class="far fa-address-book"></i> About</a>
-  </li>
-  <li class="nav-item">
-      <a class="nav-link" href="{% url 'services' %}"><i class="far fa-clone"></i> Services</a>
-  </li>
-  <li class="nav-item active">
-      <a class="nav-link" href="{% url 'contact-us' %}"><i class="far fa-calendar-alt"></i> Contact</a>
-  </li>
-  <li class="nav-item">
-      <a class="nav-link" href="{% url 'coming-soon' %}"><i class="far fa-chart-bar"></i> Developers Section</a>
-  </li>
-</ul>
+
+    <ul class="navbar-nav ml-auto">
+        <div class="hori-selector">
+            <div class="left"></div>
+            <div class="right"></div>
+        </div>
+        <li class="nav-item ">
+            <a class="nav-link " href="{% url 'home' %}"><i class="fas fa-tachometer-alt"></i> Home</a>
+        </li>
+        <li class="nav-item ">
+            <a class="nav-link" href="{% url 'About-Us' %}"><i class="far fa-address-book"></i> About</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'services' %}"><i class="far fa-clone"></i> Services</a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link" href="{% url 'contact-us' %}"><i class="far fa-calendar-alt"></i> Contact</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'Portal' %}"><i class="far fa-chart-bar"></i> Developers Section</a>
+        </li>
+    </ul>
 
 </div>
 {% endblock %}
@@ -35,18 +38,70 @@ Contact Us
 <div class="container-flex ">
     <div class="row row1">
         <div class="col">
-            <h1>Contact Us</h1>       
-            
+            <h1>Contact Us</h1>
+
         </div>
     </div>
-    
+
 
     <!-- CONTACT FORM -->
     {% include 'contactform.html' %}
+    <!-- CONTACT ELEMNETS -->
+    
+      </div><div class="wrappers">
+        <div class="cols">
+                  <div class="col" ontouchstart="this.classList.toggle('hover');">
+                      <div class="container conbox">
+                          <div class="front" style="background-image: url('/static/app/images/contact-call.jpg');">
+                              <div class="inner">
+                                  <p>Call Us</p>
+                    <span>+91 9818744671</span>
+                              </div>
+                          </div>
+                          <div class="back">
+                              <div class="inner">
+                                <span>+91 9818744671</span>
+                                <p>Assistance hours: Monday – Friday, 10 am to 7 pm</p>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col" ontouchstart="this.classList.toggle('hover');">
+                      <div class="container conbox">
+                          <div class="front" style="background-image: url('/static/app/images/contact-mail.jpg');">
+                              <div class="inner">
+                                  <p>Email Us at</p>
+                    <span style="font-size: 15px;">cantechsoftwares@gmail.com</span>
+                              </div>
+                          </div>
+                          <div class="back">
+                              <div class="inner">
+                                  <p><a href="mailto:cantechsoftwares@gmail.com">cantechsoftwares@gmail.com</a></p>
+                                  <p>Our support team will get back to you 24 hour during standard business hours.</p>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col" ontouchstart="this.classList.toggle('hover');">
+                      <div class="container conbox">
+                          <div class="front" style="background-image: url('/static/app/images/contact-whatsapp.jpg');">
+                              <div class="inner">
+                                  <p>Whatsapp</p>
+                    <span><a href="https://wa.link/hdy2ri">Message me here</a></span>
+                              </div>
+                          </div>
+                          <div class="back">
+                              <div class="inner">
+                                <span><a href="https://wa.link/hdy2ri">Message me here</a></span>
+                                  <p>Assistance hours: Monday – Saturday, 10 am to 7 pm</p>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+       </div>
 
 
 </div>
 
 {% endblock %}
-
-

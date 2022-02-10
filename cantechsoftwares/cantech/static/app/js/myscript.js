@@ -55,3 +55,29 @@ jQuery(document).ready(function($){
 	// Add active class to target link
 	target.parent().addClass('active');
 });
+
+
+// LOGIN PAGE SCRIPT
+
+
+ $("#login-button").click(function(event){
+		 event.preventDefault();
+	 
+	 $('form').fadeOut(500);
+	 $('.wrapper').addClass('form-success');
+});
+
+
+// SIGNUPAND SIGNIN USER AND RECUITER
+
+const signUpButton = document.getElementById('signUp');
+const signInButton = document.getElementById('signIn');
+const container = document.getElementById('container');
+
+signUpButton.addEventListener('click', () => {
+	container.classList.add("right-panel-active");
+});
+
+signInButton.addEventListener('click', () => {
+	container.classList.remove("right-panel-active");
+});

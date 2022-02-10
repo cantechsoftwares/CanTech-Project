@@ -6,7 +6,7 @@ from .models import *
 from django.contrib import messages
 from django.db.models import Q
 from django.http import JsonResponse
-
+from job.views import *
 # Create your views here.
 
 
@@ -40,6 +40,14 @@ class Contact(View):
     def get(self,request):
         
         return render(request,'contact.html')
+
+class Developer(View):
+    def get(self,request):
+
+        if not request.user.is_authenticated:
+            return redirect('job/user-login')
+        else:
+            return render(request,'developers.html')
 
 
 

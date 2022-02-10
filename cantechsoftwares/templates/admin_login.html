@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Admin
+{% endblock %}
+
+{% block navbar-active %}
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+    <ul class="navbar-nav ml-auto">
+        <div class="hori-selector">
+            <div class="left"></div>
+            <div class="right"></div>
+        </div>
+        <li class="nav-item ">
+            <a class="nav-link " href="{% url 'home' %}"><i class="fas fa-tachometer-alt"></i> Home</a>
+        </li>
+        <li class="nav-item ">
+            <a class="nav-link" href="{% url 'About-Us' %}"><i class="far fa-address-book"></i> About</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'services' %}"><i class="far fa-clone"></i> Services</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'contact-us' %}"><i class="far fa-calendar-alt"></i> Contact</a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link" href="{% url 'Portal' %}"><i class="far fa-chart-bar"></i> Developers Section</a>
+        </li>
+    </ul>
+
+</div>
+{% endblock %}
+
+{% block content %}
+
+<!-- FIRST CONTAINER -->
+<div class="container-flex ">
+    <div class="row row1">
+        <div class="col">
+            <h1>Admin Login</h1>
+
+        </div>
+    </div>
+    <div class="login-wrapper">
+        <div class="container">
+            <h1>Welcome Admin</h1>
+            
+            <form class="form">
+                {% csrf_token %}
+                <input type="text" placeholder="Username">
+                <input type="password" placeholder="Password">
+                <button type="submit" id="login-button">Login</button>
+            </form>
+        </div>
+        
+        <ul class="bg-bubbles">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+
+
+
+
+</div>
+
+
+{% endblock %}

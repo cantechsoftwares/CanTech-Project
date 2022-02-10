@@ -1,0 +1,128 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+User
+{% endblock %}
+
+{% block navbar-active %}
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+    <ul class="navbar-nav ml-auto">
+        <div class="hori-selector">
+            <div class="left"></div>
+            <div class="right"></div>
+        </div>
+        <li class="nav-item ">
+            <a class="nav-link " href="{% url 'home' %}"><i class="fas fa-tachometer-alt"></i> Home</a>
+        </li>
+        <li class="nav-item ">
+            <a class="nav-link" href="{% url 'About-Us' %}"><i class="far fa-address-book"></i> About</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'services' %}"><i class="far fa-clone"></i> Services</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'contact-us' %}"><i class="far fa-calendar-alt"></i> Contact</a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link" href="{% url 'Portal' %}"><i class="far fa-chart-bar"></i> Developers Section</a>
+        </li>
+    </ul>
+
+</div>
+{% endblock %}
+
+{% block content %}
+
+<script>
+    function checkpass(){
+        if(document.signup1.psswd.value != document.signup1.cpsswd.value){
+            alert('Passwords do not match');
+            document.signup.cpsswd.focus();
+            event.preventDefault()
+            
+        }
+        return true;
+    }
+</script>
+
+{% if message %}
+<script>alert(" Something Went Wrong {{ message }}");</script>
+{% endif %}
+<!-- FIRST CONTAINER -->
+<div class="container-flex signup ">
+    <!-- <div class="row row1">
+        <div class="col">
+            <h1>User Login</h1>
+
+        </div>
+    </div> -->
+    
+    <!-- SIGNIN AND SIGNUP USER -->
+    
+<div class="container" id="container">
+	<div class="form-container sign-up-container">
+		<form  method="POST" action="user-login" name="signup1" onsubmit="return checkpass();" enctype="multipart/form-data">
+            {% csrf_token %}
+			<h1>Create Account</h1>
+			<!-- <div class="social-container">
+				<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+				<a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+				<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+			</div> -->
+			<span>use your email for registration</span>
+			<input required type="text" name="uname" placeholder="Name" />
+			<input required type="email" name="uemail" placeholder="Email" />
+            <input required type="tel" name="uphno"  id="" placeholder="Phone Number">
+			<input required type="password" name="psswd" placeholder="Password" />
+			<input required type="password" name="cpsswd" placeholder="Confirm Password" />
+			<input type="hidden" name="inorup" value="signup" id="">
+
+			<!-- <button type="submit">Sign Up</button> -->
+            <input type="submit" value="Sign In">
+		</form>
+	</div>
+	<div class="form-container sign-in-container">
+		<form action="user-login" method="post" name="signin">
+            {% csrf_token %}
+
+			<h1>Sign in</h1>
+			<!-- <div class="social-container">
+				<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+				<a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+				<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+			</div> -->
+			<span>  use your account</span>
+			<input required type="email" name="uname" placeholder="Email" />
+			<input required type="password" name="psswd" placeholder="Password" />
+			<input type="hidden" name="inorup" value="login" id="">
+			<a href="#">Forgot your password?</a>
+			<button type="submit" >Sign In</button>
+			<!-- <input type="submit" value="signin" > -->
+		</form>
+	</div>
+	<div class="overlay-container">
+		<div class="overlay">
+			<div class="overlay-panel overlay-left">
+				<h2>Existing User?</h2>
+				<h1>Welcome Back!</h1>
+				<p>To keep connected with us please login with your info</p>
+				<button class="ghost" id="signIn">Sign In</button>
+			</div>
+			<div class="overlay-panel overlay-right">
+				<h2>New, Here?</h2>
+				<h1>Hello, User!</h1>
+				<p>Enter your details and start journey with us</p>
+				<button class="ghost" id="signUp">Sign Up</button>
+			</div>
+		</div>
+	</div>
+</div>
+ 
+
+
+
+</div>
+
+
+{% endblock %}
