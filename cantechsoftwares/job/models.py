@@ -25,7 +25,9 @@ class UserModel(models.Model):
     experience = models.IntegerField(default=0,null=True,blank=True)
     type = models.CharField(max_length=100,null=True,blank=True)
     password = models.CharField(max_length=100)
-
+    freelance = models.BooleanField(default=False)
+    aboutu = models.TextField(max_length=2000,null=True,blank=True)
+    user_type = models.CharField(max_length=100,null=True,blank=True)
     def __str__(self):
         return self.user.username
 

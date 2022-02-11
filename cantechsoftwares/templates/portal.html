@@ -52,7 +52,8 @@ Portal
             <!-- 2 ELEMENTS -->
             <div class="col-md-4" >
                 <div class="servblock" >
-                    <a href="{% url 'user-login' %}" class="service-block s-block wide-sblock row" >
+
+                    <a {% if user.is_authenticated %} href="{% url 'developer' %}" {% else %} href="{% url 'user-login' %}" {% endif %} class="service-block s-block wide-sblock row" >
                         <img class="aboutu5-img" src="{% static 'app/images/businessman.png' %}" alt=""  >
                         <h5 class="bold-h5" >Applicant</h5>
                         <p>Looking For Development Projects and Active Job Roles.</p>

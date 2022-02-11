@@ -60,7 +60,8 @@ p {
     color: #2C3E50;
     background-color: #ECEFF1;
     font-size: 16px;
-    letter-spacing: 1px
+    letter-spacing: 1px;    
+    border-radius: 5px
 }
 
 #msform input:focus,
@@ -84,6 +85,7 @@ p {
     margin: 24px 0px 10px 5px;
     float: right;
     position: initial;
+    border-radius: 20px;
 }
 
 #msform .action-button:hover,
@@ -101,7 +103,8 @@ p {
     cursor: pointer;
     padding: 10px 5px;
     margin: 10px 5px 10px 0px;
-    float: right
+    float: right;
+    border-radius:20px;
 }
 
 #msform .action-button-previous:hover,
@@ -222,3 +225,102 @@ p {
     width: 100%;
     object-fit: cover
 }
+
+
+
+/* RADIO */
+
+.radioclass:root {
+    --primary-light: #8abdff;
+    --primary: #6d5dfc;
+    --primary-dark: #5b0eeb;
+    --white: #fff;
+    --greyLight-1: #e4ebf5;
+    --greyLight-2: #c8d0e7;
+    --greyLight-3: #bec8e4;
+    --greyDark: #9baacf;
+}
+
+.radioclass *, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+.radioclass {
+    box-sizing: border-box;
+    font-size: 62.5%;
+    /* overflow-y: scroll; */
+    /* background: #5b0eeb; */
+}
+@media screen and (min-width: 900px) {
+    .radioclass {
+        font-size: 75%;
+   }
+}
+.radioclass {
+    /* min-height: 100vh; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+    /* background: #5b0eeb;  */
+}
+.radioclass {
+    /* width: 75rem;
+    height: 40rem; */
+    border-radius: 3rem;
+    /* box-shadow: 0.8rem 0.8rem 1.4rem #c8d0e7, -0.2rem -0.2rem 1.8rem #fff; */
+    padding: 4rem;
+    display: inline;
+    grid-template-columns: 17.6rem 19rem 20.4rem;
+    grid-template-rows: repeat(autofit, min-content);
+    grid-column-gap: 5rem;
+    grid-row-gap: 2.5rem;
+    align-items: center;
+}
+
+/*  */
+
+
+.radio {
+    grid-column: 0.5;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+}
+.radio input {
+    display: none;
+}
+.radio__1 input:checked ~ label, .radio__2 input:checked ~ label {
+    box-shadow: inset 0.2rem 0.2rem 0.5rem #c8d0e7, inset -0.2rem -0.2rem 0.5rem #ddd;
+}
+.radio__1 input:checked ~ label::after, .radio__2 input:checked ~ label::after {
+    background: #6d5dfc;
+}
+.radio__1 label, .radio__2 label {
+    box-shadow: 0.3rem 0.3rem 0.6rem #c8d0e7, -0.2rem -0.2rem 0.5rem #ddd;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    width: 2.8rem;
+    height: 2.8rem;
+    border-radius: 50%;
+}
+.radio__1 label:hover::after, .radio__2 label:hover::after {
+    background: #8abdff;
+}
+.radio__1 label::after, .radio__2 label::after {
+    content: "";
+    position: absolute;
+    width: 1.4rem;
+    height: 1.4rem;
+    background: #9baacf;
+    border-radius: 50%;
+    transition: 0.3s ease;
+}
+
+
+
+
