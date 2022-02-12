@@ -86,16 +86,23 @@ class Signup(View):
     def post(self,request):
         if request.method == 'POST':
             try:
-                uemail = request.POST['uemail']
-                uname = request.POST['uname']
-                uphno = request.POST['uphno']
-                user_type = request.POST['user_type']
-                age = request.POST['age']
-                experience = request.POST['experience']
-                resume = request.FILES['resume']
-                image = request.FILES['image']
-                city = request.POST['city']
-                aboutu = request.POST['aboutu']
+                uemail = request.POST.get('uemail')
+                uname = request.POST.get('uname')
+                uphno = request.POST.get('uphno')
+                domain = request.POST.get('domain')
+                user_type = request.POST.get('user_type')
+                age = request.POST.get('age')
+                experience = request.POST.get('experience')
+                resume = request.FILES.get('resume')
+                image = request.FILES.get('image')
+                city = request.POST.get('city')
+                aboutu = request.POST.get('aboutu')
+                freelance = request.POST.get('freelance')
+                if freelance == 'on':
+                    freelance = 1
+                else:
+                    freelance = 0    
+                print(freelance,'HAHAHAHAHA')
 
             
                 userm = UserModel.objects.filter(uemail=uemail)
@@ -104,11 +111,14 @@ class Signup(View):
                     um.uphone = uphno
                     um.type = user_type
                     um.age = age
+                    um.domain = domain
                     um.experience = experience
                     um.resume = resume
                     um.image = image
                     um.city = city
                     um.aboutu = aboutu
+                    um.freelance = freelance
+                    um.user_type = 'APPLICANT'
                     um.save()
 
 

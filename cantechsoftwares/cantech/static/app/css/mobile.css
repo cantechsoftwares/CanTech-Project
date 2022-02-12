@@ -102,6 +102,14 @@
 	  padding: 3vh;
   }
 
+  .signup form{
+	padding: 0 5px;
+  }
+
+  .signup h1{
+	  font-size: 17px;
+  }
+
 
 }
 

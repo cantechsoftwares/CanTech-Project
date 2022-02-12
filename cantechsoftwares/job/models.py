@@ -1,3 +1,4 @@
+from datetime import datetime
 from pyexpat import model
 from statistics import mode
 from django.db import models
@@ -17,7 +18,7 @@ class UserModel(models.Model):
     uemail = models.EmailField(unique=True)
     city = models.CharField(max_length=100, null=True, blank=True)
     country = models.CharField(max_length=100,null=True, blank=True)
-    date_created = models.DateTimeField(auto_now_add=True)
+    date_created = models.DateTimeField(default=datetime.now())
     domain = models.CharField(max_length=100,null=True,blank=True)
     resume = models.FileField(upload_to='resume/', blank=True, null=True)
     total_projects = models.IntegerField(default=0)
@@ -28,6 +29,7 @@ class UserModel(models.Model):
     freelance = models.BooleanField(default=False)
     aboutu = models.TextField(max_length=2000,null=True,blank=True)
     user_type = models.CharField(max_length=100,null=True,blank=True)
+    
     def __str__(self):
         return self.user.username
 
