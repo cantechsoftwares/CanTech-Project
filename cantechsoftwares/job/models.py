@@ -33,8 +33,18 @@ class UserModel(models.Model):
     def __str__(self):
         return self.user.username
 
-# class RecruiterModel(models.Model):
-#     user = models.ForeignKey(User, on_delete=models.CASCADE)
-#     phone = models.CharField(max_length=100, blank=True, null=True)
-#     image = models.ImageField(upload_to='images/', blank=True, null=True)
-#     password = models.CharField(max_length=100)
+class RecruiterModel(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    uname = models.CharField(max_length=100, blank=True, null=True) 
+    uphone = models.CharField(max_length=13, blank=True, null=True,) 
+    image = models.ImageField(upload_to='images/', blank=True, null=True)
+    password = models.CharField(max_length=100)
+    user_type = models.CharField(max_length=100,null=True,blank=True)
+    company = models.CharField(max_length=100,null=True,blank=True)
+    status = models.CharField(max_length=100,null=True,blank=True)
+
+    def __str__(self):
+        return self.user.username
+
+    
+    

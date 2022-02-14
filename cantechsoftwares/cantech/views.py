@@ -47,7 +47,12 @@ class Developer(View):
         if not request.user.is_authenticated:
             return redirect('job/user-login')
         else:
-            return render(request,'developers.html')
+            user = request.user
+            print(user,'JAJAJA')
+            print(user.username,'POPOPOPO')
+            cuser = UserModel.objects.get(uemail=user.username)
+                
+            return render(request,'developers.html',{'cuser':cuser})
 
 
 

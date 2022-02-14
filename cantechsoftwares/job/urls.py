@@ -13,6 +13,7 @@ urlpatterns = [
     path('user-login',views.User_login.as_view(),name="user-login"),
     path('recruiter-login',views.Recruiter_login.as_view(),name="recruiter-login"),
     path('Signup',views.Signup.as_view(),name="Signup"),
+    path('Logout',views.Logout.as_view(),name="Logout"),
     
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

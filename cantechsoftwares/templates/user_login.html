@@ -48,7 +48,10 @@ User
 </script>
 
 {% if message %}
-<script>alert(" Something Went Wrong {{ message }}");</script>
+<script>alert(" Something Went Wrong: {{ message }}");</script>
+{% endif %}
+{% if e %}
+<script>alert(" Something Went Wrong: {{ e }}");</script>
 {% endif %}
 <!-- FIRST CONTAINER -->
 <div class="container-flex signup ">
@@ -105,14 +108,14 @@ User
 	<div class="overlay-container">
 		<div class="overlay">
 			<div class="overlay-panel overlay-left">
-				<h2>Existing User?</h2>
+				<h2>Existing {{ log_type }}?</h2>
 				<h1>Welcome Back!</h1>
 				<p>To keep connected with us please login with your info</p>
 				<button class="ghost" id="signIn">Sign In</button>
 			</div>
 			<div class="overlay-panel overlay-right">
 				<h2>New, Here?</h2>
-				<h1>Hello, User!</h1>
+				<h1>Hello, {{ log_type }}!</h1>
 				<p>Enter your details and start journey with us</p>
 				<button class="ghost" id="signUp">Sign Up</button>
 			</div>

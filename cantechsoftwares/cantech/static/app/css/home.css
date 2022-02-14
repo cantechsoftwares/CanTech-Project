@@ -284,6 +284,17 @@ html .mt30 {
   vertical-align: baseline;
 }
 
+.servicon{
+  float: left;
+  width: 25%;  
+  height: 120px;
+}
+
+.servtext{
+  float: right;
+    width: 75%;
+}
+
 .elegantshadow {
   color: #131313;
   background-color: #e7e5e4;
@@ -688,7 +699,8 @@ background: linear-gradient(0deg, rgba(0,172,238,1) 0%, rgba(2,126,251,1) 100%);
   text-align: center;
   padding: 50px;
   font-weight: 700;
-  background: #868585;
+  background: linear-gradient(to right top, #d16ba5, #ca70b8, #be76cb, #ac7fde, #9288ee, #8687f4, #7686f9, #6385ff, #7177ff, #8764ff, #a149ff, #bd06ff);
+  
 }
 .row7 h1{
   font-weight: 600;

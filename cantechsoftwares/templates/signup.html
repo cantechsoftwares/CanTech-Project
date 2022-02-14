@@ -34,13 +34,33 @@ Signup
 
 {% block content %}
 
+<script>
+    function checkpass(){
+        if(document.signup1.psswd.value != document.signup1.cpsswd.value){
+            alert('Passwords do not match');
+            document.signup.cpsswd.focus();
+            event.preventDefault()
+			return false
+            
+        }
+        return true;
+    }
+</script>
+
+{% if message %}
+<script>alert(" Something Went Wrong:  {{ message }}");</script>
+{% endif %}
+{% if e %}
+<script>alert(" Something Went Wrong {{ e }}");</script>
+{% endif %}
+
 <!-- FIRST CONTAINER -->
 <!-- <div class="container-flex "> -->
 
 
 <div class="container-fluid signupbody ">
     <div class="row justify-content-center">
-        <div class="col-8 text-center p-0 mt-3 mb-2">
+        <div class="col-10 text-center p-0 mt-3 mb-2">
             <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
                 <h2 id="heading">Sign Up Your User Account</h2>
                 <p>Fill all form field to go to next step</p>

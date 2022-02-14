@@ -18,6 +18,13 @@ class Portal(View):
         
         return render(request,'portal.html')
 
+class Logout(View): 
+    def get(self,request):
+        logout(request)
+        return redirect('/')
+        
+
+
 class Admin_login(View):
     def get(self,request):
         
@@ -35,17 +42,19 @@ class User_login(View):
                 if user:
                     try:
                         userm = UserModel.objects.get(user=user)
-                        if userm.type == 'Applicant':
+                        print(userm.type)
+                        if userm.user_type == 'Applicant':
                             login(request, user)
+                            print('SUCCSESS')
                             message = "Login Successfull"
                             return redirect('developer')
                     except Exception as e:
                         print(e)
                         messages.error(request, 'Invalid Username or Password')
-                        return render(request, 'user_login.html')
+                        return render(request, 'user_login.html',e)
                 else:
                     message = 'Invalid Username or Password'
-                    return render(request, 'user_login.html')
+                    return render(request, 'user_login.html',{'message':message})
                 return redirect('Portal')   
 
             # FOR SIGNUP
@@ -60,26 +69,26 @@ class User_login(View):
                 print(data)
                 if psswd == cpsswd:
                     try:
-                        user = User.objects.create_user(first_name=uname,username=uemail,password=psswd)
-                        UserModel.objects.create(user=user,uname=uname,uemail=uemail,uphone=uphno,password=psswd,type=type)
+                        user = User.objects.create_user(first_name=uname,username=uemail,password=psswd,email=uemail)
+                        UserModel.objects.create(user=user,uname=uname,uemail=uemail,uphone=uphno,password=psswd,user_type=type)
                         return render(request,'signup.html',{'data':data})
                     except Exception as e:
-                        print(e)
-                        return render(request,'user_login.html') 
+                        message = 'User Already Exist by this Email or Mobile'
+                        return render(request,'user_login.html',{'message':message}) 
                 else: 
-                    return render(request,'user_login.html')   
+                    return render(request,'user_login.html',{'message':'Password and Confirm Password does not match'})   
 
                  
         
 
     def get(self,request):
-        
-        return render(request,'user_login.html')
+        log_type = 'User'
+        return render(request,'user_login.html',{'log_type':log_type})
 
 class Recruiter_login(View):
     def get(self,request):
-        
-        return render(request,'recruiter_login.html')
+        log_type = 'Recruiter'
+        return render(request,'user_login.html',{'log_type':log_type})
 
 
 class Signup(View):
@@ -102,7 +111,6 @@ class Signup(View):
                     freelance = 1
                 else:
                     freelance = 0    
-                print(freelance,'HAHAHAHAHA')
 
             
                 userm = UserModel.objects.filter(uemail=uemail)
@@ -130,7 +138,7 @@ class Signup(View):
                 return redirect('developer')
             except Exception as e:
                 print(e)
-                return render(request,'signup.html')    
+                return render(request,'signup.html',{'message':e})    
 
     def get(self,request):
         
