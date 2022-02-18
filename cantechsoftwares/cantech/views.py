@@ -7,6 +7,8 @@ from django.contrib import messages
 from django.db.models import Q
 from django.http import JsonResponse
 from job.views import *
+from django.contrib.auth.models import User
+from job.models import *
 # Create your views here.
 
 
@@ -48,13 +50,24 @@ class Developer(View):
             return redirect('job/user-login')
         else:
             user = request.user
-            print(user,'JAJAJA')
             print(user.username,'POPOPOPO')
             cuser = UserModel.objects.get(uemail=user.username)
+            allusers = UserModel.objects.all()
                 
-            return render(request,'developers.html',{'cuser':cuser})
+            return render(request,'developers.html',{'cuser':cuser,'allusers':allusers})
 
+class Recruiter(View):
+    def get(self,request):
 
+        if not request.user.is_authenticated:
+            return redirect('job/user-login')
+        else:
+            user = request.user
+            print(user,'JAJAJA')
+            print(user.username,'POPOPOPO')
+            cuser = RecruiterModel.objects.get(remail=user.username)
+                
+            return render(request,'recruiter.html',{'cuser':cuser})
 
 class FeedbackForm(View):
     def post(self,request):

@@ -14,6 +14,7 @@ urlpatterns = [
     path('recruiter-login',views.Recruiter_login.as_view(),name="recruiter-login"),
     path('Signup',views.Signup.as_view(),name="Signup"),
     path('Logout',views.Logout.as_view(),name="Logout"),
+    path('Administrator',views.Administrator.as_view(),name="Administrator"), 
     
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

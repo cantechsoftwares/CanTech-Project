@@ -15,8 +15,17 @@ from cantech.views import *
 
 class Portal(View):
     def get(self,request):
-        
-        return render(request,'portal.html')
+        if request.user.is_authenticated:
+            log_type = 'User'
+            cuser = request.user.email
+            if UserModel.objects.filter(uemail=cuser):  
+                return redirect('developer')
+            elif RecruiterModel.objects.filter(remail=cuser):
+                return redirect('recruiter')
+            elif request.user.is_superuser:
+                return redirect('Administrator')
+        else:
+            return render(request,'portal.html')
 
 class Logout(View): 
     def get(self,request):
@@ -26,9 +35,36 @@ class Logout(View):
 
 
 class Admin_login(View):
+    def post(self,request):
+        if request.method == 'POST':
+            username = request.POST['aname']
+            password = request.POST['psswd']   
+            user = authenticate(username=username, password=password) 
+            print("AAYA1")
+            try:
+                if user.is_staff:
+                    login(request, user)
+                    return redirect('Administrator')    # Redirect to a success page.   
+                else:
+                    # message = messages.error(request, 'Sorry you are not an admin')
+                    message= "Sorry you are not authoirized to login as admin Stay In your Limits !!"
+                    return render(request, 'admin_login.html',{'message':message})
+  
+            except Exception as e: 
+                # message = messages.error(request, 'Invalid Username or Password')
+                message = "Invalid Username or Password"
+                return render(request, 'admin_login.html',{'message':message})
+                       
     def get(self,request):
-        
         return render(request,'admin_login.html')
+
+class Administrator(View):
+    def get(self,request):
+        if request.user.is_authenticated:
+            if request.user.is_superuser:
+                return render(request,'administrator.html')
+            else:
+                return redirect('Portal')
 
 class User_login(View):
     def post(self,request):
@@ -41,13 +77,17 @@ class User_login(View):
                 user = authenticate(username=username, password=password)
                 if user:
                     try:
-                        userm = UserModel.objects.get(user=user)
-                        print(userm.type)
-                        if userm.user_type == 'Applicant':
+                        # userm = UserModel.objects.get(user=user)
+                        if UserModel.objects.filter(user=user):
+                        # print(userm.type)
+                            # if userm.user_type == 'Applicant':
                             login(request, user)
                             print('SUCCSESS')
                             message = "Login Successfull"
                             return redirect('developer')
+                        else:
+                            message = "Sorry you are not an applicant"
+                            return render(request,'user_login.html',{'message':message})    
                     except Exception as e:
                         print(e)
                         messages.error(request, 'Invalid Username or Password')
@@ -82,14 +122,76 @@ class User_login(View):
         
 
     def get(self,request):
-        log_type = 'User'
-        return render(request,'user_login.html',{'log_type':log_type})
+        if request.user.is_authenticated:
+            log_type = 'User'
+            cuser = request.user.email
+            return redirect('developer')
+        else:
+            log_type = 'User'
+
+            return render(request,'user_login.html',{'log_type':log_type})
 
 class Recruiter_login(View):
-    def get(self,request):
-        log_type = 'Recruiter'
-        return render(request,'user_login.html',{'log_type':log_type})
+    def post(self,request):
+        if request.method == 'POST':
+            inorup = request.POST['inorup']
+            # FOR LOGIN
+            if inorup == 'login':
+                username = request.POST['rname']
+                password = request.POST['psswd']
+                user = authenticate(username=username, password=password)
+                if user:
+                    try:
+                        # userm = RecruiterModel.objects.get(user=user)
+                        if RecruiterModel.objects.filter(user=user):
+                        # if userm.user_type == 'Recruiter':
+                            login(request, user)
+                            print('SUCCSESS')
+                            message = "Login Successfull"
+                            return redirect('recruiter')
+                        else:
+                            message = "Sorry you are not an recruiter"
+                            return render(request,'recruiter_login.html',{'message':message})    
+                    except Exception as e:
+                        print(e)
+                        messages.error(request, 'Invalid Username or Password')
+                        return render(request, 'recruiter_login.html',e)
+                else:
+                    message = 'Invalid Username or Password'
+                    return render(request, 'recruiter_login.html',{'message':message})
+                return redirect('Portal')   
 
+            # FOR SIGNUP
+            elif inorup == 'signup':
+                rname = request.POST['rname']
+                remail = request.POST['remail']
+                rphno = request.POST['rphno']
+                psswd = request.POST['psswd']
+                cpsswd = request.POST['cpsswd']
+                company = request.POST['company']
+                type = "Recruiter"
+                data = {'uname':rname,'uemail':remail,'uphno':rphno,'psswd':psswd,'type':type}
+                print(data)
+                if psswd == cpsswd:
+                    try:
+                        user = User.objects.create_user(first_name=rname,username=remail,password=psswd,email=remail)
+                        RecruiterModel.objects.create(user=user,rname=rname,remail=remail,rphone=rphno,password=psswd,user_type=type,company=company)
+                        # return render(request,'signup.html',{'data':data})
+                        return redirect('recruiter')
+                    except Exception as e:
+                        message = 'User Already Exist by this Email or Mobile'
+                        return render(request,'recruiter_login.html',{'message':message}) 
+                else: 
+                    return render(request,'recruiter_login.html',{'message':'Password and Confirm Password does not match'})   
+
+    def get(self,request):
+        if request.user.is_authenticated:
+            log_type = 'Recruiter'
+            return redirect('recruiter')
+        else:
+            log_type = 'Recruiter'
+            return render(request,'recruiter_login.html',{'log_type':log_type})    
+        
 
 class Signup(View):
     def post(self,request):

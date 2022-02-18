@@ -16,5 +16,6 @@ urlpatterns = [
     path('Services',views.Services.as_view(),name="services"),
     path('Contact',views.Contact.as_view(),name="contact-us"),
     path('Developers',views.Developer.as_view(),name="developer"),
+    path('Recruiter',views.Recruiter.as_view(),name="recruiter"),
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
