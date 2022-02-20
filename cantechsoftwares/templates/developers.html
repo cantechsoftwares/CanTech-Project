@@ -158,8 +158,9 @@ Services
             <div class="project-box" style="background-color: #fee4cb;">
               <div class="project-box-header">
                 <span>{{ u.domain }}</span>
-                
-                <img height="60px" width="60px" style="border-radius: 50%;" src="{{alluser.image.url}}" />
+                {% if u.image %}
+                <img height="60px" width="60px" style="border-radius: 50%;" src="{{u.image.url}}" />
+                {% endif %}
                 <!-- <div class="more-wrapper">
                   <button class="project-btn-more">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical">
@@ -205,12 +206,14 @@ Services
             <!-- <div class="days-left" style="color: #ff942e;">
               2 Days Left
             </div> -->
-            <div>          
-              <a href="" class="button white-single">
+            <div>     
+              {% if u.resume %}     
+              <a href="{{u.resume.url}}"  class="button white-single" download>
                 <div>
-                    <svg viewBox="0 0 24 24"></svg>
+                  <svg viewBox="0 0 24 24"></svg>
                 </div>
-            </a>
+              </a>
+              {% endif %}  
             </div>
           </div>
         </div>

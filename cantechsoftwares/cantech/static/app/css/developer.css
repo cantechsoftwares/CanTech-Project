@@ -501,7 +501,7 @@
 	 background-color: var(--main-color-card);
 }
  .project-box-header {
-	 display: flex;
+	 display: flex-root;
 	 align-items: center;
 	 justify-content: space-between;
 	 margin-bottom: 16px;
