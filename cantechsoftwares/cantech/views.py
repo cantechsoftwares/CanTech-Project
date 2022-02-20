@@ -81,9 +81,27 @@ class FeedbackForm(View):
 
             feedback = FeedbackModel.objects.create(f_name=f_name,f_phoneno=f_phoneno,f_email=f_email,f_message=f_message)
         
-        return render(request,'home.html') 
+        return redirect('home')
 
 class AboutUs(View):
     def get(self,request):
         
         return render(request,'about_us.html')
+
+
+class GetQuote(View):
+    def post(self,request):
+        if request.method == 'POST':
+            qname = request.POST['qname']
+            qphone = request.POST['qphone']
+            qemail = request.POST['qemail']
+            qbussiness = request.POST['qbussiness']
+            totalpage = request.POST['totalpage']
+            stack = request.POST['stack']
+            qbudget = 0
+            qteam = request.POST['qteam']
+            qtype = request.POST['qtype']
+            
+
+            feedback = QuotationModel.objects.create(qname=qname,qphone=qphone,qemail=qemail,qbussiness=qbussiness,totalpage=totalpage,stack=stack,qbudget=qbudget,qteam=qteam,qtype=qtype)
+        return redirect('home') 

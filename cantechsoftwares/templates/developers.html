@@ -22,7 +22,7 @@ Services
       <a class="nav-link" href="{% url 'contact-us' %}"><i class="far fa-calendar-alt"></i> Contact</a>
   </li>
   <li class="nav-item active">
-      <a class="nav-link" href="{% url 'Portal' %}"><i class="far fa-chart-bar"></i> Developers Section</a>
+      <a class="nav-link" href="{% url 'Portal' %}"><i class="far fa-chart-bar"></i> Portal</a>
   </li>
 </ul>
 
@@ -53,7 +53,7 @@ Services
       </div>
       <div class="app-header-right">
         <button class="profile-btn">
-          <img src="https://assets.codepen.io/3306515/IMG_2025.jpg" />
+          <img src="{{cuser.image.url}}" />
 
           <span>{{ user.first_name }}{{ cuser }}</span>
         </button>
@@ -133,7 +133,7 @@ Services
             </div>
           </div>
           <div class="view-actions">
-            <button class="view-btn list-view" title="List View">
+            <button class="view-btn list-view active" title="List View">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-list">
                 <line x1="8" y1="6" x2="21" y2="6" />
                 <line x1="8" y1="12" x2="21" y2="12" />
@@ -142,7 +142,7 @@ Services
                 <line x1="3" y1="12" x2="3.01" y2="12" />
                 <line x1="3" y1="18" x2="3.01" y2="18" /></svg>
             </button>
-            <button class="view-btn grid-view active" title="Grid View">
+            <button class="view-btn grid-view " title="Grid View">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-grid">
                 <rect x="3" y="3" width="7" height="7" />
                 <rect x="14" y="3" width="7" height="7" />
@@ -151,46 +151,66 @@ Services
             </button>
           </div>
         </div>
-        <div class="project-boxes jsGridView">
+        <div class="project-boxes jsListView">
           <!-- for start -->
           {% for u in allusers %}
           <div class="project-box-wrapper">
             <div class="project-box" style="background-color: #fee4cb;">
               <div class="project-box-header">
-                <span>{{ u.experience }}</span>
-                <div class="more-wrapper">
+                <span>{{ u.domain }}</span>
+                
+                <img height="60px" width="60px" style="border-radius: 50%;" src="{{cuser.image.url}}" />
+                <!-- <div class="more-wrapper">
                   <button class="project-btn-more">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical">
                       <circle cx="12" cy="12" r="1" />
                       <circle cx="12" cy="5" r="1" />
                       <circle cx="12" cy="19" r="1" /></svg>
                   </button>
-            </div>
+            </div> -->
           </div>
           <div class="project-box-content-header">
             <p class="box-content-header">{{ u.uname }}</p>
-            <p class="box-content-subheader">{{ u.domain }}</p>
+            <p class="box-content-subheader">{{ u.city }}</p>
           </div>
           <div class="box-progress-wrapper">
-            <p class="box-progress-header">Progress</p>
-            <div class="box-progress-bar">
+            <p class="box-progress-header">About</p>
+            <!-- <div class="box-progress-bar">
               <span class="box-progress" style="width: 60%; background-color: #ff942e"></span>
             </div>
-            <p class="box-progress-percentage">60%</p>
+            <p class="box-progress-percentage">60%</p> -->
+            <p class="m-0">Age: {{ u.age}} Years</p> 
+            <p class="m-0">Experience: {{ u.experience }} Years</p> 
+            <p class="m-0">Total Projects: {{ u.total_projects }}</p> 
+            {% if u.freelance %}
+            <p class="m-0">Freelance: Available</p> 
+            {% else %}
+            <p class="m-0">Freelance: Not Available</p> 
+            {% endif %}
+
           </div>
           <div class="project-box-footer">
             <div class="participants">
-              {% if u.image %}
+            <p class="box-content-subheader m-0">{{ u.uphone|slice:"0:5" }}****</p>
+            <p class="box-content-subheader m-0">{{ u.uemail|slice:"2:8" }}</p>
+              <!-- {% if u.image %}
               <img src="{{u.image.url}}" alt="participant">
               {% endif %}
               <button class="add-participant" style="color: #ff942e;">
                 <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus">
                   <path d="M12 5v14M5 12h14" />
                 </svg>
-              </button>
+              </button> -->
             </div>
-            <div class="days-left" style="color: #ff942e;">
+            <!-- <div class="days-left" style="color: #ff942e;">
               2 Days Left
+            </div> -->
+            <div>          
+              <a href="" class="button white-single">
+                <div>
+                    <svg viewBox="0 0 24 24"></svg>
+                </div>
+            </a>
             </div>
           </div>
         </div>
@@ -201,14 +221,14 @@ Services
         <div class="project-box" style="background-color: #e9e7fd;">
           <div class="project-box-header">
             <span>December 10, 2020</span>
-            <div class="more-wrapper">
+            <!-- <div class="more-wrapper">
               <button class="project-btn-more">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical">
                   <circle cx="12" cy="12" r="1" />
                   <circle cx="12" cy="5" r="1" />
                   <circle cx="12" cy="19" r="1" /></svg>
               </button>
-            </div>
+            </div> -->
           </div>
           <div class="project-box-content-header">
             <p class="box-content-header">Testing</p>
@@ -239,7 +259,7 @@ Services
       </div>
       <div class="project-box-wrapper">
         <div class="project-box">
-          <div class="project-box-header">
+          <div class="project-box-header">  
             <span>December 10, 2020</span>
             <div class="more-wrapper">
               <button class="project-btn-more">
