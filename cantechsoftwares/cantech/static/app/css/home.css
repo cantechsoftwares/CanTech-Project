@@ -100,7 +100,7 @@ button {
 }
 /* BUTTON BLUE */
 .btn-shine {
-  padding: 15px 75px;
+  padding: 15px 50px;
   background-image: linear-gradient(to right, #1bdbd1, #1fa2ff);
   overflow: hidden;
 }
