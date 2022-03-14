@@ -64,9 +64,9 @@ User
     
     <!-- SIGNIN AND SIGNUP USER -->
     
-<div class="container desktop-signup" id="container" >
+<div class="container desktop-signup" id="container"  style="height: 80vh;">
 	<div class="form-container sign-up-container">
-		<form  method="POST" action="recruiter-login" name="signup1" onsubmit="return checkpass();" >
+		<form  method="POST" action="recruiter-login" enctype="multipart/form-data" name="signup1" onsubmit="return checkpass();" >
             {% csrf_token %}
 			<h1>Create Account</h1>
 			<!-- <div class="social-container">
@@ -79,6 +79,7 @@ User
 			<input required type="email" name="remail" placeholder="Email" />
             <input required type="tel" name="rphno"  id="" placeholder="Phone Number">
             <input required type="text" name="company"  id="" placeholder="Organization">
+			<input type="file" name="image" capture="user" accept="image/*" placeholder="Organisation Image" > 
 			<input required type="password" name="psswd" placeholder="Password" />
 			<input required type="password" name="cpsswd" placeholder="Confirm Password" />
 			<input type="hidden" name="inorup" value="signup" id="">

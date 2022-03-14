@@ -68,22 +68,18 @@ Services
               </a>
             </li>
             <li class="nav-list-item">
-              <a class="nav-list-link" href="#">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                Team
+              <a class="nav-list-link" href="{% url 'change_password' %}  ">
+                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="25" height="25" viewBox="0 0 172 172"  style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g fill="#949494"><path d="M86,6.88c-22.83031,0 -41.28,18.44969 -41.28,41.28v13.76h-13.76c-5.65719,0 -10.32,4.66281 -10.32,10.32v82.56c0,5.65719 4.66281,10.32 10.32,10.32h110.08c5.65719,0 10.32,-4.66281 10.32,-10.32v-82.56c0,-5.65719 -4.66281,-10.32 -10.32,-10.32h-13.76v-13.76c0,-22.83031 -18.44969,-41.28 -41.28,-41.28zM86,13.76c19.14844,0 34.4,15.25156 34.4,34.4v13.76h-68.8v-13.76c0,-19.14844 15.25156,-34.4 34.4,-34.4zM30.96,68.8h110.08c1.90813,0 3.44,1.53188 3.44,3.44v82.56c0,1.90813 -1.53187,3.44 -3.44,3.44h-110.08c-1.90812,0 -3.44,-1.53187 -3.44,-3.44v-82.56c0,-1.90812 1.53188,-3.44 3.44,-3.44zM86,86c-9.44656,0 -17.2,7.75344 -17.2,17.2h6.88c0,-5.6975 4.6225,-10.32 10.32,-10.32c5.6975,0 10.32,4.6225 10.32,10.32c0,2.76813 -0.645,4.28656 -1.505,5.4825c-0.86,1.19594 -2.0425,2.06938 -3.5475,2.9025c-1.505,0.83313 -3.225,1.57219 -4.945,2.6875c-1.72,1.11531 -3.7625,3.31906 -3.7625,6.1275v6.88h6.88v-6.88c0,-0.1075 -0.3225,0.13438 0.5375,-0.43c0.86,-0.56437 2.58,-1.30344 4.515,-2.365c1.935,-1.06156 4.1925,-2.45906 5.9125,-4.8375c1.72,-2.37844 2.795,-5.63031 2.795,-9.5675c0,-9.44656 -7.75344,-17.2 -17.2,-17.2zM82.56,130.72v6.88h6.88v-6.88z"></path></g></g></svg>
+                Change Password 
               </a>
             </li>
             <li class="nav-list-item">
-              <a class="nav-list-link" href="#">
+              <a class="nav-list-link" href="{% url 'Logout' %}">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-pie-chart"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"/><path d="M22 12A10 10 0 0 0 12 2v10z"/></svg>
-                Reports
+                Logout
               </a>
             </li>
-            <li class="nav-list-item">
-              <a href="{% url 'Logout' %}"><button  class="mode-switch" title="Logout"  data-bs-toggle="tooltip" data-bs-placement="bottom" title="Tooltip on bottom">
-              Logout    <img class="ml-5"  src="{% static 'app/images/logout.png' %}" height="30px" alt=""  >
-              </button></a>
-            </li>
+            
           </ul>
         </div>
         <div class="app-main">

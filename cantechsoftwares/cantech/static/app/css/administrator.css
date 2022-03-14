@@ -1,7 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
-* {
-  box-sizing: border-box;
-}
+
 :root {
   --app-bg: #101827;
   --sidebar: #151e2f;
@@ -36,7 +33,7 @@ body, html {
   width: 100%;
 }
 body {
-  overflow: hidden;
+  /* overflow: hidden; */
   font-family: 'Poppins', sans-serif;
   background-color: var(--app-bg);
   -webkit-font-smoothing: antialiased;
@@ -405,8 +402,8 @@ body {
   align-items: center;
 }
 .tableView .product-cell img {
-  width: 32px;
-  height: 32px;
+  width: 50px;
+  height: 50px;
   border-radius: 6px;
   margin-right: 6px;
 }
@@ -579,3 +576,23 @@ body {
   opacity: 0.6;
 }
     
+.resume{
+    color: azure;
+    text-decoration: none;
+}
+
+.row01logo{
+  font: 700 2em/1 "Oswald", sans-serif;
+    letter-spacing: 0;
+    /* padding: 0.25em 0 0.325em; */
+    /* display: block; */
+    margin: 0 auto;
+    text-shadow: 0 0 80px rgb(144 255 255 / 80%);
+    background: url(https://i.ibb.co/RDTnNrT/animated-text-fill.png) repeat-y;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-animation: aitf 20s linear infinite;
+    -webkit-transform: translate3d(230, 50, 40);
+    -webkit-backface-visibility: hidden;
+}

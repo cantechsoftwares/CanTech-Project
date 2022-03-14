@@ -2,7 +2,7 @@ from calendar import c
 from email import message
 from django.contrib.auth import authenticate, load_backend, login, logout
 from django.http.response import JsonResponse
-from django.shortcuts import redirect, render
+from django.shortcuts import redirect, render, reverse
 from django.views import View
 from .models import *
 from django.contrib import messages
@@ -62,9 +62,56 @@ class Administrator(View):
     def get(self,request):
         if request.user.is_authenticated:
             if request.user.is_superuser:
-                return render(request,'administrator.html')
+                w = request.GET.get('who') 
+                developers = UserModel.objects.all()
+                recruiters = RecruiterModel.objects.all()
+                if 'users' == w:
+                    return render(request,'administrator.html',{'developers':developers,'who':'user'})
+                elif 'recruiter' == w:  
+                    return render(request,'administrator.html',{'recruiters':recruiters,'who':'recruiter'})
+                elif w == 'pending':
+                    recruiters = RecruiterModel.objects.filter(status='pending')
+                    return render(request,'administrator.html',{'recruiters':recruiters,'who':'recruiter'})
+
+                else:
+                    print('hahahah')
+                    return render(request,'administrator.html',{'recruiters':recruiters,'developers':developers,'who':'all'})
+
             else:
                 return redirect('Portal')
+
+class delete_url(View):
+    def get(self,request,pid,type):
+        print(pid,'pid===================',type)
+        if request.user.is_authenticated:
+            if type == 'users':
+                # user = UserModel.objects.get(id=pid)
+                obj  = User.objects.get(id=pid)
+            elif type == 'recruiter':
+                print('recruiter=====================')
+                # user = RecruiterModel.objects.get(id=pid) 
+                obj  = User.objects.get(id=pid)
+                print(obj,'obj=====================')
+            print('USERID+++++++',obj)
+            
+            # user.delete()
+            obj.delete()
+
+            return redirect(reverse('Administrator')+'?who='+type)
+
+        return render(request,'administrator.html')
+
+class change_status(View):
+    def get(self,request,pid):
+        if request.user.is_authenticated:
+            user = RecruiterModel.objects.get(id=pid)
+            if user.status == ('pending' or 'Pending'):
+                user.status = 'active'
+            else:
+                user.status = 'pending'
+            user.save()
+            return redirect(reverse('Administrator')+'?who=recruiter')
+        return render(request,'administrator.html')
 
 class User_login(View):
     def post(self,request):
@@ -169,14 +216,18 @@ class Recruiter_login(View):
                 psswd = request.POST['psswd']
                 cpsswd = request.POST['cpsswd']
                 company = request.POST['company']
+                image = request.FILES.get('image')
+
                 type = "Recruiter"
                 data = {'uname':rname,'uemail':remail,'uphno':rphno,'psswd':psswd,'type':type}
-                print(data)
+                
                 if psswd == cpsswd:
                     try:
                         user = User.objects.create_user(first_name=rname,username=remail,password=psswd,email=remail)
-                        RecruiterModel.objects.create(user=user,rname=rname,remail=remail,rphone=rphno,password=psswd,user_type=type,company=company)
+                        RecruiterModel.objects.create(user=user,rname=rname,remail=remail,rphone=rphno,password=psswd,user_type=type,company=company,image=image)
                         # return render(request,'signup.html',{'data':data})
+                        user = authenticate(username=remail, password=psswd)
+                        login(request, user)
                         return redirect('recruiter')
                     except Exception as e:
                         message = 'User Already Exist by this Email or Mobile'
@@ -246,3 +297,36 @@ class Signup(View):
         
         return render(request,'signup.html')
 
+class change_password(View):
+    def get(self,request):
+        if not request.user.is_authenticated:
+            return redirect('Portal')
+        else:
+            return render(request,'change_password.html')    
+
+    def post(self,request):
+        if request.method == 'POST':
+            old_password = request.POST.get('old_password')
+            new_password = request.POST.get('new_password')
+            confirm_password = request.POST.get('confirm_password')
+            who = request.POST.get('who')
+            if new_password == confirm_password:
+                user = authenticate(username=request.user.email, password=old_password)
+                if who == 'recruiter':
+                    userm = RecruiterModel.objects.get(user=user)
+                elif who == 'developer':
+                    userm = UserModel.objects.get(user=user)
+       
+                if user:
+                    user.set_password(new_password)
+                    user.save()
+                    userm.password = new_password
+                    userm.save()
+                    # return redirect('Portal')
+                    return render(request,'change_password.html',{'message':'Password Changed'})
+
+                else:
+                    return render(request,'change_password.html',{'message':'Invalid Old Password'})
+            else:
+                return render(request,'change_password.html',{'message':'New Password and Confirm Password does not match'})
+        return render(request,'change_password.html')
